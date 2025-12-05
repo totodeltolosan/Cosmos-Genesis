@@ -70,7 +70,13 @@ export interface LogEntry { id: string; timestamp: number; text: string; type: '
 export interface Achievement { id: string; name: string; description: string; icon: string; condition: (state: GameState) => boolean; }
 export interface ActiveEvent { id: string; definitionId: string; startTime: number; endTime: number; }
 export interface EventDefinition { id: string; name: string; description: string; type: 'positive' | 'negative' | 'mixed'; duration: number; multiplier: { [key in ResourceType]?: number }; minEra: Era; chance: number; }
-export interface CodexEntry { id: string; title: string; category: 'PHYSICS' | 'COSMOLOGY' | 'BIOLOGY' | 'META'; content: { [key in KnowledgeLevel]: string }; unlockCondition: (upgrades: string[]) => boolean; }
+export interface CodexEntry { 
+    id: string; 
+    title: string; 
+    category: 'PHYSICS' | 'COSMOLOGY' | 'BIOLOGY' | 'META' | 'GUIDE'; 
+    content: { [key in KnowledgeLevel]: string }; 
+    unlockCondition: (upgrades: string[]) => boolean; 
+}
 
 // --- EXPLORATION V3.1 (4X Features) ---
 export type GalaxyType = 'SPIRAL' | 'ELLIPTICAL' | 'IRREGULAR';
